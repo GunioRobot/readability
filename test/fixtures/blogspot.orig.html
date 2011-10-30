@@ -1020,7 +1020,7 @@ function build_posts(data) {
   var list = document.createElement('div');
   // Loop through all data items returned
   for (var i=0; i < data.items.length; i++) {
-  	
+
     var item = data.items[i];
 var listElement= document.createElement('div');
 listElement.className="listelement";
@@ -1030,8 +1030,8 @@ listElement.className="listelement";
 
 	link.href = item.alternate.href;
         listElement.appendChild(link)
-	listElement.appendChild(document.createElement('br'));    
-       
+	listElement.appendChild(document.createElement('br'));
+
 
 
 var bloglink = document.createElement('a');
@@ -1095,7 +1095,7 @@ Do you want to comment on a post? <a href="mailto:gblog@google.com">Send us some
 <div class='section' id='footer'><div class='widget HTML' id='HTML1'>
 <div class='widget-content'>
 Copyright &#169; 2010 Google Inc. All rights reserved.<br />
-   <a href="http://www.google.com/privacy.html">Privacy Policy</a> | 
+   <a href="http://www.google.com/privacy.html">Privacy Policy</a> |
 	      <a href="http://www.google.com/terms_of_service.html">Terms of Service</a>
 </div>
 <div class='clear'></div>
@@ -1142,7 +1142,7 @@ TweetAndTrack.newWindow = function(url, width, height) {
   var a = function() {
     document.location.href=url;
   };
-  
+
   if( /Firefox/.test(navigator.userAgent)) {
     setTimeout(a,0);
   } else {

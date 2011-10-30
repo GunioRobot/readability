@@ -148,12 +148,12 @@ expected in the near future or which might just simply be good to have.
 The author intends to update this document for some time.  This
 includes updates made necessary by advances in technology but also to
 correct mistakes.  Readers willing to report problems are encouraged
-to send email.  
+to send email.
 </p><p>
 </p><p>
 <h3>1.3 Thanks</h3>
 </p><p>
-I would like to thank Johnray Fuller and especially Jonathan Corbet 
+I would like to thank Johnray Fuller and especially Jonathan Corbet
 for taking on part of the
 daunting task of transforming the author's form of English into something
 more traditional.  Markus Armbruster provided a lot of valuable input
@@ -441,7 +441,7 @@ For the following discussion it is important to note that
 </p></li><li> maintaining the state of the cell requires constant power.
 <p>
 </p></li><li> the cell state is available for reading almost immediately once
-  the word access line <span>WL</span> is raised.  The signal is as rectangular 
+  the word access line <span>WL</span> is raised.  The signal is as rectangular
   (changing quickly between the two binary states) as
   other transistor-controlled signals.
 <p>
@@ -475,7 +475,7 @@ transistor <span>M</span> is used to guard the access to the state.  To
 read the state of the cell the access line <span>AL</span> is raised;
 this either causes a current to flow on the data line <span>DL</span> or
 not, depending on the charge in the capacitor.  To write to the cell the
-data line <span>DL</span> is appropriately 
+data line <span>DL</span> is appropriately
 set and then <span>AL</span> is raised for a time long enough to charge or
 drain the capacitor.
 </p><p>
@@ -549,7 +549,7 @@ processor translates this into a physical address and finally the
 memory controller selects the RAM chip corresponding to that address.  To
 select the individual memory cell on the RAM chip, parts of the
 physical address are passed on in the form of a number of address
-lines.  
+lines.
 </p><p>
 It would be completely impractical to address memory locations
 individually from the memory controller: 4GB of RAM would require
@@ -564,7 +564,7 @@ problem for chips with small capacities.
 But if the number of cells grows this approach is not suitable
 anymore.  A chip with 1Gbit
 {<i>I hate those SI prefixes. For me
-a giga-bit will always be 2<sup>30</sup> and not 10<sup>9</sup> bits.</i>} 
+a giga-bit will always be 2<sup>30</sup> and not 10<sup>9</sup> bits.</i>}
 capacity
 would need 30 address lines and 2<sup>30</sup> select lines.  The size of a
 demultiplexer increases exponentially with the number of input lines
@@ -590,14 +590,14 @@ one multiplexer of half the size.  {<i>Multiplexers and
 demultiplexers are equivalent and the multiplexer here needs to work
 as a demultiplexer when writing.  So we will drop the differentiation
 from now on.</i>}  This is a huge saving on all fronts.  In the example
-the address lines 
+the address lines
 <span>a<sub>0</sub></span> and
 <span>a<sub>1</sub></span> through the <i>row address
-selection</i> 
+selection</i>
 (<span>RAS</span>)
 demultiplexer select the address lines of a whole row of cells.  When
 reading, the content of all cells is thusly made available to the
-<i>column address selection</i> 
+<i>column address selection</i>
 (<span>CAS</span>)
 {<i>The line over the name
 indicates that the signal is negated</i>} multiplexer.  Based on the
@@ -696,7 +696,7 @@ We will concentrate on current technology; we will not discuss
 asynchronous DRAM and its variants as they are simply not relevant
 anymore.  Readers interested in this topic are referred to
 [highperfdram] and [arstechtwo].  We will also not talk about
-Rambus DRAM (RDRAM) even though 
+Rambus DRAM (RDRAM) even though
 the technology is not obsolete.  It is just not widely used for system
 memory.  We will concentrate exclusively
 on Synchronous DRAM (SDRAM) and its successors Double Data Rate DRAM
@@ -764,7 +764,7 @@ Often the choice is between 2, 4, or 8 words.  This allows filling
 entire lines in the caches without a new <span>RAS</span>/<span>CAS</span> sequence.  It is also
 possible for the memory controller to send a new <span>CAS</span> signal without
 resetting the row selection.  In this way, consecutive memory addresses
-can be read from or written to significantly faster because 
+can be read from or written to significantly faster because
 the <span>RAS</span> signal does not have to be sent and the row does
 not have to be deactivated (see below).  Keeping the row &#147;open&#148; is
 something the memory controller has to decide.  Speculatively leaving
@@ -952,7 +952,7 @@ buffer holds two bits per data line.  This in turn requires that, in
 the cell array in Figure 2.7, the data bus consists of two
 lines.  Implementing this is trivial: one only has the use the same
 column address for two DRAM cells and access them in parallel.  The
-changes to the cell array to implement this are also minimal.  
+changes to the cell array to implement this are also minimal.
 </p><p>
 The SDR
 DRAMs were known simply by their frequency (e.g., PC100 for 100MHz
@@ -1010,7 +1010,7 @@ Figure 2.13 shows the names of the modules in use today.
 </p><p>
 There is one more twist to the naming.  The FSB speed used by CPU,
 motherboard, and DRAM module is specified by using the
-<i>effective</i> frequency.  I.e., it factors in the transmission 
+<i>effective</i> frequency.  I.e., it factors in the transmission
 on both flanks of the clock cycle and thereby inflates
 the number.  So, a 133MHz module with a 266MHz bus has an FSB
 &#147;frequency&#148; of 533MHz.
@@ -1046,7 +1046,7 @@ outweigh the increased latency.
 </p><p>
 One possible problem with DDR3 is that, for 1,600Mb/s transfer rate or
 higher, the number of modules per channel may be reduced to just one.
-In earlier versions this requirement held for all frequencies, so 
+In earlier versions this requirement held for all frequencies, so
 one can hope that the requirement will at some point be lifted for all
 frequencies.  Otherwise the capacity of systems will be severely limited.
 </p><p>
@@ -1811,15 +1811,15 @@ But I guess DVI designers decided the computer wants to update the picture by a 
 <p>Posted Sep 29, 2007 23:06 UTC (Sat) by <b>foom</b> (subscriber, #14868)
        [<a href="http://lwn.net/Articles/252271/">Link</a>]
     </p>
-<blockquote>But I guess DVI designers decided the 
-computer wants to update the picture by a full 
-raster 
-scan 60 times a second anyway, so there's no need for internal refresh. Doing a little reading just 
-now, it looks like the DVI data stream is a simple raster scan. It even apparently has "blanking 
+<blockquote>But I guess DVI designers decided the
+computer wants to update the picture by a full
+raster
+scan 60 times a second anyway, so there's no need for internal refresh. Doing a little reading just
+now, it looks like the DVI data stream is a simple raster scan. It even apparently has "blanking
 intervals," though they couldn't possibly be for same purpose as on a CRT.</blockquote>
 <p>
-DVI's timing and blanking intervals are the same as VGA's. I believe it was designed this way to 
-make the modification to the video cards easier, and to facilitate dual-output DVI / VGA video 
+DVI's timing and blanking intervals are the same as VGA's. I believe it was designed this way to
+make the modification to the video cards easier, and to facilitate dual-output DVI / VGA video
 cards. (so the VGA port is basically just the DVI port with an extra D2A converter in the path.)
   </p></div>
 <p>
@@ -2121,17 +2121,17 @@ There are programmers out there, who write memory controller configuration code 
 <p>Posted Sep 28, 2007 15:56 UTC (Fri) by <b>pm101</b> (guest, #3011)
        [<a href="http://lwn.net/Articles/252058/">Link</a>]
     </p>
-    Personally, I think it is useful to have a reasonable knowledge one level of abstraction down, and one level of abstraction up. There are a number of reasons for this: 
+    Personally, I think it is useful to have a reasonable knowledge one level of abstraction down, and one level of abstraction up. There are a number of reasons for this:
 <ul>
-<li> You can often find optimizations that cross abstraction barriers. It is difficult to predict what you'll need to know to do this, so you really need to have a deep understanding of both layers. In some cases, you can also influence the hardware design. 
-</li><li> You can predict how the technology may evolve. 
-</li><li> You gain intellectual depth. 
+<li> You can often find optimizations that cross abstraction barriers. It is difficult to predict what you'll need to know to do this, so you really need to have a deep understanding of both layers. In some cases, you can also influence the hardware design.
+</li><li> You can predict how the technology may evolve.
+</li><li> You gain intellectual depth.
 </li></ul>
-This is especially important for systems programmers -- the target of this article. If I'm designing a kernel, or a virtual machine (as in JVM, or .net runtime), or a high-performance systems library, I want to design it in such a way that it can take advantage of possible future underlying technologies. 
+This is especially important for systems programmers -- the target of this article. If I'm designing a kernel, or a virtual machine (as in JVM, or .net runtime), or a high-performance systems library, I want to design it in such a way that it can take advantage of possible future underlying technologies.
 <p>
-Indeed, in many cases, I may even be able to influence underlying technologies. If I am aware of the circuit requirements of memory refresh, I can design code that explicitly leaves time for the refresh, while giving good bandwidth and latency when the memory is actually accessed. If something is a good idea, and a major OS or runtime can take advantage of it, you can bet that hardware designers somewhere will add support for it. 
-</p><p> 
-The major reason most CPUs only have 2-4 cores today, and didn't have multiple cores a while ago, was that software could not take advantage of them. Right now, optimum performance comes from about 64 cores at 700MHz each (the Tilera processor), but it can only be used in esoteric applications because software designers a decade ago were not aware of where the hardware is headed, and did not design applications, languages, or run-times in a parallelism-friendly way (programmer-friendly parallelism is only starting to happen today with languages like Fortress). 
+Indeed, in many cases, I may even be able to influence underlying technologies. If I am aware of the circuit requirements of memory refresh, I can design code that explicitly leaves time for the refresh, while giving good bandwidth and latency when the memory is actually accessed. If something is a good idea, and a major OS or runtime can take advantage of it, you can bet that hardware designers somewhere will add support for it.
+</p><p>
+The major reason most CPUs only have 2-4 cores today, and didn't have multiple cores a while ago, was that software could not take advantage of them. Right now, optimum performance comes from about 64 cores at 700MHz each (the Tilera processor), but it can only be used in esoteric applications because software designers a decade ago were not aware of where the hardware is headed, and did not design applications, languages, or run-times in a parallelism-friendly way (programmer-friendly parallelism is only starting to happen today with languages like Fortress).
   </p></div>
 <p>
 

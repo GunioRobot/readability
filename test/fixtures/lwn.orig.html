@@ -254,12 +254,12 @@ expected in the near future or which might just simply be good to have.
 The author intends to update this document for some time.  This
 includes updates made necessary by advances in technology but also to
 correct mistakes.  Readers willing to report problems are encouraged
-to send email.  
+to send email.
 <p>
 <p>
 <h3>1.3 Thanks</h3>
 <p>
-I would like to thank Johnray Fuller and especially Jonathan Corbet 
+I would like to thank Johnray Fuller and especially Jonathan Corbet
 for taking on part of the
 daunting task of transforming the author's form of English into something
 more traditional.  Markus Armbruster provided a lot of valuable input
@@ -553,7 +553,7 @@ For the following discussion it is important to note that
 <li> maintaining the state of the cell requires constant power.
 <p>
 <li> the cell state is available for reading almost immediately once
-  the word access line <span class="UliMath">WL</span> is raised.  The signal is as rectangular 
+  the word access line <span class="UliMath">WL</span> is raised.  The signal is as rectangular
   (changing quickly between the two binary states) as
   other transistor-controlled signals.
 <p>
@@ -589,7 +589,7 @@ transistor <span class="UliMath">M</span> is used to guard the access to the sta
 read the state of the cell the access line <span class="UliMath">AL</span> is raised;
 this either causes a current to flow on the data line <span class="UliMath">DL</span> or
 not, depending on the charge in the capacitor.  To write to the cell the
-data line <span class="UliMath">DL</span> is appropriately 
+data line <span class="UliMath">DL</span> is appropriately
 set and then <span class="UliMath">AL</span> is raised for a time long enough to charge or
 drain the capacitor.
 <p>
@@ -664,7 +664,7 @@ processor translates this into a physical address and finally the
 memory controller selects the RAM chip corresponding to that address.  To
 select the individual memory cell on the RAM chip, parts of the
 physical address are passed on in the form of a number of address
-lines.  
+lines.
 <p>
 It would be completely impractical to address memory locations
 individually from the memory controller: 4GB of RAM would require
@@ -679,7 +679,7 @@ problem for chips with small capacities.
 But if the number of cells grows this approach is not suitable
 anymore.  A chip with 1Gbit
 {<i>I hate those SI prefixes. For me
-a giga-bit will always be 2<sup>30</sup> and not 10<sup>9</sup> bits.</i>} 
+a giga-bit will always be 2<sup>30</sup> and not 10<sup>9</sup> bits.</i>}
 capacity
 would need 30 address lines and 2<sup>30</sup> select lines.  The size of a
 demultiplexer increases exponentially with the number of input lines
@@ -706,14 +706,14 @@ one multiplexer of half the size.  {<i>Multiplexers and
 demultiplexers are equivalent and the multiplexer here needs to work
 as a demultiplexer when writing.  So we will drop the differentiation
 from now on.</i>}  This is a huge saving on all fronts.  In the example
-the address lines 
+the address lines
 <span class="UliMath">a<sub>0</sub></span> and
 <span class="UliMath">a<sub>1</sub></span> through the <i>row address
-selection</i> 
+selection</i>
 (<span class="UliInvSig">RAS</span>)
 demultiplexer select the address lines of a whole row of cells.  When
 reading, the content of all cells is thusly made available to the
-<i>column address selection</i> 
+<i>column address selection</i>
 (<span class="UliInvSig">CAS</span>)
 {<i>The line over the name
 indicates that the signal is negated</i>} multiplexer.  Based on the
@@ -813,7 +813,7 @@ We will concentrate on current technology; we will not discuss
 asynchronous DRAM and its variants as they are simply not relevant
 anymore.  Readers interested in this topic are referred to
 [highperfdram] and [arstechtwo].  We will also not talk about
-Rambus DRAM (RDRAM) even though 
+Rambus DRAM (RDRAM) even though
 the technology is not obsolete.  It is just not widely used for system
 memory.  We will concentrate exclusively
 on Synchronous DRAM (SDRAM) and its successors Double Data Rate DRAM
@@ -883,7 +883,7 @@ Often the choice is between 2, 4, or 8 words.  This allows filling
 entire lines in the caches without a new <span class="UliInvSig">RAS</span>/<span class="UliInvSig">CAS</span> sequence.  It is also
 possible for the memory controller to send a new <span class="UliInvSig">CAS</span> signal without
 resetting the row selection.  In this way, consecutive memory addresses
-can be read from or written to significantly faster because 
+can be read from or written to significantly faster because
 the <span class="UliInvSig">RAS</span> signal does not have to be sent and the row does
 not have to be deactivated (see below).  Keeping the row &#147;open&#148; is
 something the memory controller has to decide.  Speculatively leaving
@@ -973,14 +973,14 @@ For instance: 2-3-2-8-T1.  This means:
 <table>
 
 <tr><td>w </td><td> 2 </td><td> <span
-class="UliInvSig">CAS</span> Latency (CL)</td></tr> 
+class="UliInvSig">CAS</span> Latency (CL)</td></tr>
 <tr><td>x </td><td> 3 </td><td> <span class="UliInvSig">RAS</span>-to-<span
 class="UliInvSig">CAS</span> delay (<span
-class="UliMath">t<sub>RCD</sub></span>)</td></tr> 
+class="UliMath">t<sub>RCD</sub></span>)</td></tr>
 <tr><td>y </td><td> 2 </td><td> <span class="UliInvSig">RAS</span>
-Precharge (<span class="UliMath">t<sub>RP</sub></span>)</td></tr> 
+Precharge (<span class="UliMath">t<sub>RP</sub></span>)</td></tr>
 <tr><td>z </td><td> 8 </td><td> Active to Precharge delay (<span
-class="UliMath">t<sub>RAS</sub></span>)</td></tr> 
+class="UliMath">t<sub>RAS</sub></span>)</td></tr>
 <tr><td>T </td><td> T1 </td><td> Command Rate</td></tr>
 </table>
 </blockquote>
@@ -1081,7 +1081,7 @@ buffer holds two bits per data line.  This in turn requires that, in
 the cell array in Figure 2.7, the data bus consists of two
 lines.  Implementing this is trivial: one only has the use the same
 column address for two DRAM cells and access them in parallel.  The
-changes to the cell array to implement this are also minimal.  
+changes to the cell array to implement this are also minimal.
 <p>
 The SDR
 DRAMs were known simply by their frequency (e.g., PC100 for 100MHz
@@ -1143,7 +1143,7 @@ Figure 2.13 shows the names of the modules in use today.
 <p>
 There is one more twist to the naming.  The FSB speed used by CPU,
 motherboard, and DRAM module is specified by using the
-<i>effective</i> frequency.  I.e., it factors in the transmission 
+<i>effective</i> frequency.  I.e., it factors in the transmission
 on both flanks of the clock cycle and thereby inflates
 the number.  So, a 133MHz module with a 266MHz bus has an FSB
 &#147;frequency&#148; of 533MHz.
@@ -1180,7 +1180,7 @@ outweigh the increased latency.
 <p>
 One possible problem with DDR3 is that, for 1,600Mb/s transfer rate or
 higher, the number of modules per channel may be reduced to just one.
-In earlier versions this requirement held for all frequencies, so 
+In earlier versions this requirement held for all frequencies, so
 one can hope that the requirement will at some point be lifted for all
 frequencies.  Otherwise the capacity of systems will be severely limited.
 <p>
@@ -1393,7 +1393,7 @@ performance tools)
 </ul><hr width="60%" align="left">
            (<a href="/login?target=/Articles/250967/">Log in</a> to post comments)
            <p>
-           
+
 </div> <!-- ArticleText -->
 <p><a name="Comments"></a>
 
@@ -1412,7 +1412,7 @@ performance tools)
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251022"></a>
@@ -1431,7 +1431,7 @@ performance tools)
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1450,7 +1450,7 @@ performance tools)
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251032"></a>
@@ -1471,7 +1471,7 @@ writes as he releases it.<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1490,7 +1490,7 @@ writes as he releases it.<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1512,7 +1512,7 @@ It's &lt;<a href="http://people.redhat.com/drepper/">http://people.redhat.com/dr
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 </div>
@@ -1534,7 +1534,7 @@ It's &lt;<a href="http://people.redhat.com/drepper/">http://people.redhat.com/dr
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251025"></a>
@@ -1558,7 +1558,7 @@ Greg
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1577,7 +1577,7 @@ Greg
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1600,7 +1600,7 @@ I've done tests to verify this on our servers, and as a result I disable Hyperth
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1623,7 +1623,7 @@ Even so, I'd still keep HT enabled for web servers and like. This is because the
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1655,7 +1655,7 @@ I usually turn off hyperthreading just to restore consistency.  Otherwise, my sp
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1674,7 +1674,7 @@ I usually turn off hyperthreading just to restore consistency.  Otherwise, my sp
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor253208"></a>
@@ -1706,7 +1706,7 @@ maybe something else.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -1727,7 +1727,7 @@ Whether your two programs are best scheduled in parallel or serially is another 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -1750,7 +1750,7 @@ As a rule of thumb, the more performance tuning you're doing on a system, the mo
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 </div>
@@ -1771,7 +1771,7 @@ As a rule of thumb, the more performance tuning you're doing on a system, the mo
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1790,7 +1790,7 @@ As a rule of thumb, the more performance tuning you're doing on a system, the mo
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251397"></a>
@@ -1808,7 +1808,7 @@ As a rule of thumb, the more performance tuning you're doing on a system, the mo
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1832,7 +1832,7 @@ familiar 240-pin form factor.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 </div>
@@ -1867,7 +1867,7 @@ familiar 240-pin form factor.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1886,7 +1886,7 @@ familiar 240-pin form factor.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1913,7 +1913,7 @@ familiar 240-pin form factor.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -1933,7 +1933,7 @@ familiar 240-pin form factor.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251157"></a>
@@ -1955,7 +1955,7 @@ of course, this is beyond the stated scope as it isnt Linux :)<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1978,7 +1978,7 @@ Also, let me make this clear: my bank comment was in regards to the "more detail
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -1999,7 +1999,7 @@ i obviously cant read minds, but i think the discussion of being able to scan ro
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 </div>
@@ -2020,7 +2020,7 @@ i obviously cant read minds, but i think the discussion of being able to scan ro
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2042,7 +2042,7 @@ i obviously cant read minds, but i think the discussion of being able to scan ro
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -2065,7 +2065,7 @@ how do you know if the RAM is it's own or shared?<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2086,7 +2086,7 @@ how do you know if the RAM is it's own or shared?<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2110,7 +2110,7 @@ What about DVI?  VGA CRTs have to be refreshed constantly, from the video contro
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2131,7 +2131,7 @@ What about DVI?  VGA CRTs have to be refreshed constantly, from the video contro
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2152,7 +2152,7 @@ My impression was that active matrix LCDs worked a lot like DRAM. They had a tra
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2175,7 +2175,7 @@ But I guess DVI designers decided the computer wants to update the picture by a 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2186,16 +2186,16 @@ But I guess DVI designers decided the computer wants to update the picture by a 
     <p class="CommentPoster">Posted Sep 29, 2007 23:06 UTC (Sat) by <b>foom</b> (subscriber, #14868)
        [<a href="http://lwn.net/Articles/252271/">Link</a>]
     </p>
-    <blockquote style="margin:0; padding-left:10px; border-left:1px dotted #336699; 
-color:#336699;">But I guess DVI designers decided the 
-computer wants to update the picture by a full 
-raster 
-scan 60 times a second anyway, so there's no need for internal refresh. Doing a little reading just 
-now, it looks like the DVI data stream is a simple raster scan. It even apparently has "blanking 
+    <blockquote style="margin:0; padding-left:10px; border-left:1px dotted #336699;
+color:#336699;">But I guess DVI designers decided the
+computer wants to update the picture by a full
+raster
+scan 60 times a second anyway, so there's no need for internal refresh. Doing a little reading just
+now, it looks like the DVI data stream is a simple raster scan. It even apparently has "blanking
 intervals," though they couldn't possibly be for same purpose as on a CRT.</blockquote>
 <p>
-DVI's timing and blanking intervals are the same as VGA's. I believe it was designed this way to 
-make the modification to the video cards easier, and to facilitate dual-output DVI / VGA video 
+DVI's timing and blanking intervals are the same as VGA's. I believe it was designed this way to
+make the modification to the video cards easier, and to facilitate dual-output DVI / VGA video
 cards. (so the VGA port is basically just the DVI port with an extra D2A converter in the path.)
   </div>
   <p>
@@ -2204,7 +2204,7 @@ cards. (so the VGA port is basically just the DVI port with an extra D2A convert
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 </div>
@@ -2231,7 +2231,7 @@ my guess the same for other better server motherboards - after this article am s
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -2254,7 +2254,7 @@ memory should not be a problem - isn't it?<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -2273,7 +2273,7 @@ memory should not be a problem - isn't it?<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251100"></a>
@@ -2291,7 +2291,7 @@ memory should not be a problem - isn't it?<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251103"></a>
@@ -2309,7 +2309,7 @@ memory should not be a problem - isn't it?<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2328,7 +2328,7 @@ memory should not be a problem - isn't it?<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251106"></a>
@@ -2354,7 +2354,7 @@ As all commenters above, I enjoyed reading first installment.  However, I think 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -2381,7 +2381,7 @@ Note that these technical details tend to change rapidly, so <u>the the</u> read
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2412,7 +2412,7 @@ You could also drop "the" before both serialization and bandwidth, for improved 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251961"></a>
@@ -2432,7 +2432,7 @@ You could also drop "the" before both serialization and bandwidth, for improved 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -2451,7 +2451,7 @@ You could also drop "the" before both serialization and bandwidth, for improved 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251114"></a>
@@ -2472,7 +2472,7 @@ section.<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251146"></a>
@@ -2494,7 +2494,7 @@ AFAIK the bridges are not connected to each other through FSB.<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2520,7 +2520,7 @@ A similar contention question left open is that of contention in the Northbridge
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2541,7 +2541,7 @@ As for bottlenecks, even if the northbridge itself has enough internal bandwidth
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 </div>
@@ -2561,7 +2561,7 @@ As for bottlenecks, even if the northbridge itself has enough internal bandwidth
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251750"></a>
@@ -2581,7 +2581,7 @@ Some architects on software that needs good optimization should probably be acqu
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2604,7 +2604,7 @@ There are programmers out there, who write memory controller configuration code 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor252058"></a>
@@ -2614,17 +2614,17 @@ There are programmers out there, who write memory controller configuration code 
     <p class="CommentPoster">Posted Sep 28, 2007 15:56 UTC (Fri) by <b>pm101</b> (guest, #3011)
        [<a href="http://lwn.net/Articles/252058/">Link</a>]
     </p>
-    Personally, I think it is useful to have a reasonable knowledge one level of abstraction down, and one level of abstraction up. There are a number of reasons for this: 
+    Personally, I think it is useful to have a reasonable knowledge one level of abstraction down, and one level of abstraction up. There are a number of reasons for this:
 <ul>
-<li> You can often find optimizations that cross abstraction barriers. It is difficult to predict what you'll need to know to do this, so you really need to have a deep understanding of both layers. In some cases, you can also influence the hardware design. 
-<li> You can predict how the technology may evolve. 
-<li> You gain intellectual depth. 
+<li> You can often find optimizations that cross abstraction barriers. It is difficult to predict what you'll need to know to do this, so you really need to have a deep understanding of both layers. In some cases, you can also influence the hardware design.
+<li> You can predict how the technology may evolve.
+<li> You gain intellectual depth.
 </ul>
-This is especially important for systems programmers -- the target of this article. If I'm designing a kernel, or a virtual machine (as in JVM, or .net runtime), or a high-performance systems library, I want to design it in such a way that it can take advantage of possible future underlying technologies. 
+This is especially important for systems programmers -- the target of this article. If I'm designing a kernel, or a virtual machine (as in JVM, or .net runtime), or a high-performance systems library, I want to design it in such a way that it can take advantage of possible future underlying technologies.
 <p>
-Indeed, in many cases, I may even be able to influence underlying technologies. If I am aware of the circuit requirements of memory refresh, I can design code that explicitly leaves time for the refresh, while giving good bandwidth and latency when the memory is actually accessed. If something is a good idea, and a major OS or runtime can take advantage of it, you can bet that hardware designers somewhere will add support for it. 
-<p> 
-The major reason most CPUs only have 2-4 cores today, and didn't have multiple cores a while ago, was that software could not take advantage of them. Right now, optimum performance comes from about 64 cores at 700MHz each (the Tilera processor), but it can only be used in esoteric applications because software designers a decade ago were not aware of where the hardware is headed, and did not design applications, languages, or run-times in a parallelism-friendly way (programmer-friendly parallelism is only starting to happen today with languages like Fortress). 
+Indeed, in many cases, I may even be able to influence underlying technologies. If I am aware of the circuit requirements of memory refresh, I can design code that explicitly leaves time for the refresh, while giving good bandwidth and latency when the memory is actually accessed. If something is a good idea, and a major OS or runtime can take advantage of it, you can bet that hardware designers somewhere will add support for it.
+<p>
+The major reason most CPUs only have 2-4 cores today, and didn't have multiple cores a while ago, was that software could not take advantage of them. Right now, optimum performance comes from about 64 cores at 700MHz each (the Tilera processor), but it can only be used in esoteric applications because software designers a decade ago were not aware of where the hardware is headed, and did not design applications, languages, or run-times in a parallelism-friendly way (programmer-friendly parallelism is only starting to happen today with languages like Fortress).
   </div>
   <p>
   <div class="CommentReplyButton">
@@ -2632,7 +2632,7 @@ The major reason most CPUs only have 2-4 cores today, and didn't have multiple c
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2651,7 +2651,7 @@ The major reason most CPUs only have 2-4 cores today, and didn't have multiple c
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 </div>
@@ -2675,7 +2675,7 @@ So, don't regard my silence as a sign of disinterest, it just means that many qu
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2709,7 +2709,7 @@ Greg
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -2732,7 +2732,7 @@ There's a much bigger world beyond computing, and they already know what "Giga" 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2772,7 +2772,7 @@ larger scientific world, not least because the numbers we deal with are getting 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2802,7 +2802,7 @@ Sorry about that.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 </div>
@@ -2825,7 +2825,7 @@ Something like 133MHz is needed to get 1600. <br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor251948"></a>
@@ -2843,7 +2843,7 @@ Something like 133MHz is needed to get 1600. <br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor252091"></a>
@@ -2865,7 +2865,7 @@ Thanks for the article.  I look forward to the rest of the parts.<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor252415"></a>
@@ -2887,7 +2887,7 @@ should be:<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor252817"></a>
@@ -2905,7 +2905,7 @@ should be:<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 
 <a name="CommAnchor253026"></a>
@@ -2937,7 +2937,7 @@ bash-3.2#<br>
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -2965,7 +2965,7 @@ Even with that, a great article!  Thanks!
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -2984,7 +2984,7 @@ Even with that, a great article!  Thanks!
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -3003,7 +3003,7 @@ Even with that, a great article!  Thanks!
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -3024,7 +3024,7 @@ As a side note, does anyone know what this was written in, and perhaps what the 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -3043,7 +3043,7 @@ As a side note, does anyone know what this was written in, and perhaps what the 
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -3065,7 +3065,7 @@ Is the script publishable? Might save a lot of people a lot of trouble.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -3086,7 +3086,7 @@ Is the script publishable? Might save a lot of people a lot of trouble.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 
@@ -3107,7 +3107,7 @@ Is the script publishable? Might save a lot of people a lot of trouble.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 <div class="Comment">
 
@@ -3126,7 +3126,7 @@ Is the script publishable? Might save a lot of people a lot of trouble.
       <input type="submit" value="Reply to this comment">
     </form>
   </div>
-  
+
 </div>
 </div>
 </td> <!-- MC -->
@@ -3154,7 +3154,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         Linux  is a registered trademark of Linus Torvalds<br>
         </font>
         </center>
-        
+
             <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -3164,6 +3164,5 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
             var pageTracker = _gat._getTracker("UA-2039382-1");
             pageTracker._trackPageview();
             } catch(err) {}</script>
-            
+
         </body></html>
-        

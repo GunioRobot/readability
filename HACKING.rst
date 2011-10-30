@@ -14,7 +14,7 @@ Install fabric and run::
 Release HOWTO
 =============
 
-To make a release, 
+To make a release,
 
   1) Update release date/version in NEWS.txt and setup.py
   2) Run 'python setup.py sdist'
